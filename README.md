@@ -1,19 +1,25 @@
-# ENR-Pub-Testing
+# Election Night Results
 
-**Automation framework for 'Election Night Results' public app**
+## 'ENR' public app automation testing
 
-Motivation: This project not only adds automated testings to the ENR app, but adds value to the overall product staying parallel with the simplicity and efficiency of the public app.
+**Technology Used:** 
+- Python
+- Unittest(Python Module)
+- Selenium(Webdriver)
 
-Technology Used : Python, Selenium
-Framework Used: Page Object Model
-Features: 
+**Framework Used:** 
+- Page Object Model
+
+**Features:** 
 - This project will help to test the ENR public application using automation to reduce the manual time.
 - Full Regression with the click of a button
 - Reducing testing time by up to 90%!
 
 
-# Code Examples
-## Page Library
+## Code Examples
+
+**Page Library**
+
     def assert_element_size(self, by_locator, element_size):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).size
         assert element == element_size
@@ -22,7 +28,8 @@ Features:
         r = requests.get(request_url)
         assert r.status_code == expected_GET_status_code
 
-## Test File
+**Test File**
+
     class Test_04_DownloadResults(EnrPublicApp):
 
     def test_0400_validate_download_results_button_text_and_dimensions(self):
@@ -36,10 +43,10 @@ Features:
         time.sleep(3)
         dl.assert_GET_status(TestData.DOWNLOAD_RESULTS_FILE_URL, 200)
 
-Installation:
+**Installation:**
 1. [Install python](https://docs.python.org/3/using/index.html)
 2. [Install Selenium](https://selenium-python.readthedocs.io/installation.html)
 
-Tests:
+**Testing:**
 * Python comes with testing framework Unittest. [Unittest Documentation](https://docs.python.org/3/library/unittest.html)
 * How to write and run tests [Running & Writing Tests](https://devguide.python.org/runtests/)

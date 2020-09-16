@@ -1,6 +1,6 @@
 class TestData():
     slug = "wow" # Election Slug
-    env = "stage"
+    env = "stage" # Environment Variable ("Dev", "Stage")
 
 # --- Page Data ---
     BASE_URL = f"https://{slug}.{env}.electionnightresults.com/"

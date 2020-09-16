@@ -16,9 +16,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="text-capitalize">Unittest Results</h2>
-                <p class='attribute'><strong>Start Time: </strong>2020-09-13 10:18:04</p>
-                <p class='attribute'><strong>Duration: </strong>29.20 s</p>
-                <p class='attribute'><strong>Summary: </strong>{'total': 18, 'error': 0, 'failure': 0, 'skip': 0, 'success': 18, 'duration': '29.20 s'}</p>
+                <p class='attribute'><strong>Start Time: </strong>2020-09-16 18:34:43</p>
+                <p class='attribute'><strong>Duration: </strong>20.87 s</p>
+                <p class='attribute'><strong>Summary: </strong>{'total': 18, 'error': 1, 'failure': 0, 'skip': 0, 'success': 17, 'duration': '20.87 s'}</p>
             </div>
         </div>
         
@@ -34,12 +34,12 @@
                     </thead>
                     <tbody>
                         
-                        <tr class='success'>
+                        <tr class='warning'>
                             <td class="col-xs-9">test_0100_validate_page_responses (__main__.Test_01_InitialPageLoad)</td>
                             <td class="col-xs-3">
-                                <span class="label label-success">
+                                <span class="label label-warning">
                                     
-                                        Pass
+                                        Error
                                     
                                 </span>
                                 
@@ -50,15 +50,13 @@
                         
                             <tr style="display:none;">
                                 <td class="col-xs-9">
-                                    <p>https://wow.stage.electionnightresults.com/ recieved a GET status '200'
-https://data.stage.electionnightresults.com/wow/results/results.json recieved a GET status '200'
-https://data.stage.electionnightresults.com/wow/config/map.topo.json recieved a GET status '200'
-https://wow.stage.electionnightresults.com/svgs/building.svg recieved a GET status '200'
-https://wow.stage.electionnightresults.com/svgs/capital.svg recieved a GET status '200'
-https://wow.stage.electionnightresults.com/svgs/issue.svg recieved a GET status '200'
+                                    
+                                    <p style="color:maroon;">AttributeError: type object 'TestData' has no attribute 'BASE_URL_STAGE'</p>
+                                    <p style="color:maroon;">Traceback (most recent call last):
+  File "/Users/danewilkerson/Workspace/ENR-Automation-Pub/Tests/test_enr_pub.py", line 32, in test_0100_validate_page_responses
+    t.assert_GET_status(TestData.BASE_URL_STAGE,200)
+AttributeError: type object 'TestData' has no attribute 'BASE_URL_STAGE'
 </p>
-                                    
-                                    
                                 </td>
                             </tr>
                         
@@ -78,7 +76,7 @@ https://wow.stage.electionnightresults.com/svgs/issue.svg recieved a GET status 
                         
                         <tr>
                             <td>
-                            {'total': 2, 'error': 0, 'failure': 0, 'skip': 0, 'success': 2, 'duration': '4.38 s'}
+                            {'total': 2, 'error': 1, 'failure': 0, 'skip': 0, 'success': 1, 'duration': '310 ms'}
                             </td>
                         </tr>
                     </tbody>
@@ -166,7 +164,7 @@ https://wow.stage.electionnightresults.com/svgs/issue.svg recieved a GET status 
                         
                         <tr>
                             <td>
-                            {'total': 5, 'error': 0, 'failure': 0, 'skip': 0, 'success': 5, 'duration': '3.69 s'}
+                            {'total': 5, 'error': 0, 'failure': 0, 'skip': 0, 'success': 5, 'duration': '4.30 s'}
                             </td>
                         </tr>
                     </tbody>
@@ -241,7 +239,7 @@ https://wow.stage.electionnightresults.com/svgs/issue.svg recieved a GET status 
                         
                         <tr>
                             <td>
-                            {'total': 4, 'error': 0, 'failure': 0, 'skip': 0, 'success': 4, 'duration': '2.75 s'}
+                            {'total': 4, 'error': 0, 'failure': 0, 'skip': 0, 'success': 4, 'duration': '2.93 s'}
                             </td>
                         </tr>
                     </tbody>
@@ -301,7 +299,7 @@ https://wow.stage.electionnightresults.com/svgs/issue.svg recieved a GET status 
                         
                         <tr>
                             <td>
-                            {'total': 2, 'error': 0, 'failure': 0, 'skip': 0, 'success': 2, 'duration': '10.97 s'}
+                            {'total': 2, 'error': 0, 'failure': 0, 'skip': 0, 'success': 2, 'duration': '6.07 s'}
                             </td>
                         </tr>
                     </tbody>
@@ -363,7 +361,7 @@ https://wow.stage.electionnightresults.com/svgs/issue.svg recieved a GET status 
                         
                         <tr>
                             <td>
-                            {'total': 3, 'error': 0, 'failure': 0, 'skip': 0, 'success': 3, 'duration': '4.82 s'}
+                            {'total': 3, 'error': 0, 'failure': 0, 'skip': 0, 'success': 3, 'duration': '4.68 s'}
                             </td>
                         </tr>
                     </tbody>
@@ -412,7 +410,7 @@ https://wow.stage.electionnightresults.com/svgs/issue.svg recieved a GET status 
                         
                         <tr>
                             <td>
-                            {'total': 2, 'error': 0, 'failure': 0, 'skip': 0, 'success': 2, 'duration': '2.59 s'}
+                            {'total': 2, 'error': 0, 'failure': 0, 'skip': 0, 'success': 2, 'duration': '2.57 s'}
                             </td>
                         </tr>
                     </tbody>

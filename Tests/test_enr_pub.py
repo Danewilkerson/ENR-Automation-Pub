@@ -8,7 +8,7 @@ from Pages.page_library import *
 
 
 class EnrPublicApp(unittest.TestCase):
-    url = TestData.BASE_URL_STAGE
+    url = TestData.BASE_URL
 
     @classmethod
     def setUpClass(cls):
@@ -29,7 +29,7 @@ class Test_01_InitialPageLoad(EnrPublicApp):
     def test_0100_validate_page_responses(self):
         t = BasePage(self.driver)
         assert self.driver.title == TestData.PAGE_TITLE
-        t.assert_GET_status(TestData.BASE_URL_STAGE,200)
+        t.assert_GET_status(TestData.BASE_URL,200)
         t.assert_GET_status(TestData.RESULTS_JSON_URL,200)
         t.assert_GET_status(TestData.MAP_TOPO_JSON_URL,200)
         t.assert_GET_status(TestData.BUILDING_SVG_URL,200)
@@ -48,13 +48,13 @@ class Test_01_InitialPageLoad(EnrPublicApp):
 class Test_02_Search(EnrPublicApp):
 
     def test_0200_validate_search_textbox_placeholder_and_dimensions(self):
-        dl = BasePage(self.driver)
-        dl.assert_element_placeholder(Locators.SEARCH_TEXTBOX_PLACEHOLDER)
-        dl.assert_element_size(Locators.SEARCH_TEXTBOX, Locators.SEARCH_TEXTBOX_DIMENSIONS)
+        s = Search(self.driver)
+        s.assert_element_placeholder(Locators.SEARCH_TEXTBOX_PLACEHOLDER)
+        s.assert_element_size(Locators.SEARCH_TEXTBOX, Locators.SEARCH_TEXTBOX_DIMENSIONS)
 
     def test_0201_search_results_candidates_title_validation(self):
         s = Search(self.driver)
-        s.search(TestData.SEARCH_RESULT_PARTIAL_NAME)
+        s.search(TestData.SEARCH_TERM_PARTIAL_NAME)
         s.assert_element_text(Locators.SEARCH_RESULT_CANDIDATE_TITLE, TestData.SEARCH_RESULTS_CANDIDATE_TITLE_TEXT)
         s.click(Locators.SEARCH_CANCEL)
 

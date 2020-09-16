@@ -1,21 +1,20 @@
 class TestData():
-    slug = "wow"
+    slug = "wow" # Election Slug
+    env = "stage"
 
 # --- Page Data ---
-    BASE_URL_DEV = f"https://{slug}.stage.electionnightresults.com/"
-    BASE_URL_STAGE = f"https://{slug}.stage.electionnightresults.com/"
-    BASE_URL_PROD = f"https://{slug}.stage.electionnightresults.com/"
+    BASE_URL = f"https://{slug}.{env}.electionnightresults.com/"
     JURISDICTION_NAME = "Azeroth"
     ELECTION_NAME = "Election of Ironforge | Aug 31, 2020"
     PAGE_TITLE = "Election Night Results"
     HEADER_TITLE_TEXT = "Election Night Results"
 
 # --- File Urls - Shape Files, Result Files  ---
-    RESULTS_JSON_URL = f"https://data.stage.electionnightresults.com/{slug}/results/results.json"
-    MAP_TOPO_JSON_URL = f"https://data.stage.electionnightresults.com/{slug}/config/map.topo.json"
-    BUILDING_SVG_URL = f"https://{slug}.stage.electionnightresults.com/svgs/building.svg"
-    CAPITAL_SVG_URL = f"https://{slug}.stage.electionnightresults.com/svgs/capital.svg"
-    ISSUE_SVG_URL = f"https://{slug}.stage.electionnightresults.com/svgs/issue.svg"
+    RESULTS_JSON_URL = f"https://data.{env}.electionnightresults.com/{slug}/results/results.json"
+    MAP_TOPO_JSON_URL = f"https://data.{env}.electionnightresults.com/{slug}/config/map.topo.json"
+    BUILDING_SVG_URL = f"https://{slug}.{env}.electionnightresults.com/svgs/building.svg"
+    CAPITAL_SVG_URL = f"https://{slug}.{env}.electionnightresults.com/svgs/capital.svg"
+    ISSUE_SVG_URL = f"https://{slug}.{env}.electionnightresults.com/svgs/issue.svg"
 
 # --- Search Data ---
     SEARCH_TERM_PARTIAL_NAME = "Joh"
@@ -27,7 +26,7 @@ class TestData():
     SEARCH_RESULTS_CONTEST_ISSUE_TITLE_TEXT = "Contest Title/Issue Name"
 
 # --- Download Results Data ---
-    DOWNLOAD_RESULTS_FILE_URL = f"https://data.stage.electionnightresults.com/{slug}/results/results.txt"
+    DOWNLOAD_RESULTS_FILE_URL = f"https://data.{env}.electionnightresults.com/{slug}/results/results.txt"
 
 # --- Precinct Reporting Card Data ---
     PRECINCT_REPORTING_SUBHEADER = "Last updated: August 31st, 2020 6:15 PM"

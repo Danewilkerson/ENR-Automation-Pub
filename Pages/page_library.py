@@ -46,7 +46,6 @@ class BasePage():
     def wait_for_page_to_load(self):
         page = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(Locators.PR_HEADER))
 
-
 class Search(BasePage):
 
     def __init__(self, driver):

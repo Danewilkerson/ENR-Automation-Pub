@@ -42,7 +42,6 @@ class TestData():
     VT_TABLE_PARTY_HEADER_TEXT = "Party"
     VT_TABLE_TURNOUT_HEADER_TEXT = "Turnout"
     VT_GUIDE_TEXT = "Click a party row to see turnout in heatmap."
-
     VT_TABLE_DEM_TEXT = "Democrat"
     VT_TABLE_DEM_TURNOUT_TEXT = "57.82%"
     VT_TABLE_REP_TEXT = "Republican"

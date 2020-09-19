@@ -59,12 +59,11 @@ class Locators():
     VT_DROPDOWN_ARROW = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div[2]//div[1]//div[1]//div[3]//button[3]//span[1]//*[local-name()='svg']"
     VT_TABLE_PARTY_HEADER = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/thead[1]/tr[1]/th[1]"
     VT_TABLE_TURNOUT_HEADER = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/thead[1]/tr[1]/th[2]"
-
     VT_TABLE_DEM = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/th[1]"
     VT_TABLE_DEM_TURNOUT = By.XPATH, "//tr[1]//td[1]"
     VT_TABLE_REP = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[1]/tr[2]/th[1]"
     VT_TABLE_REP_TURNOUT = By.XPATH, "//tr[2]//td[1]"
-
     VT_GUIDE = By.XPATH, "//span[contains(text(),'Click a party row to see turnout in heatmap.')]"
 
+# --- Wall Board Locators ---
     WALLBOARD_MAXIMIZE_ICON = By.XPATH, "//body/div/div/div/div/button/span[1]//*[local-name()='svg']"

@@ -14,7 +14,11 @@ class BasePage():
 
     def click(self, by_locator):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
-        time.sleep(.3)
+        time.sleep(.5)
+
+    def print_element_text(self, by_locator):
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).get_attribute("textContent")
+        print("Element text = " + element)
 
     def assert_element_text(self, by_locator, element_text):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator))

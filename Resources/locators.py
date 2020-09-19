@@ -40,7 +40,7 @@ class Locators():
     PR_MAXIMIZE_MAP = By.XPATH, "//div[@id='root']//div//div//div//div//div//div//div//div//div//div//div//button//span[1]//*[local-name()='svg']" 
     PR_PIE_CHART_REPORTED = By.XPATH, "//body/div[@id='root']/div/div/div/div/div/div/div[1]/div//*[local-name()='svg']//*[name()='text'][1]"
     PR_TOTAL = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div//div[1]//div[1]//div[1]//div[2]//div[2]//div[2]"
-    PR_REPORTED = By.XPATH, "//div[contains(text(),'350')]"
+    PR_REPORTED = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]"
     PR_FAVORITE_ICON = By.XPATH, "//body/div[@id='root']/div/div/div/div/div/div/div[1]/div//*[local-name()='svg']//*[name()='path' and contains(@d,'M12 21.35l')]"
     PR_SHARE_ICON = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div//div[1]//div[1]//div[1]//button[2]//span[1]//*[local-name()='svg']"
     PR_DROPDOWN_ARROW = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div//div[1]//div[1]//div[1]//button[3]//span[1]//*[local-name()='svg']"
@@ -49,16 +49,22 @@ class Locators():
 
 # --- Voter Turnout Card Locators ---
     VT_ICON = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div[2]//div[1]//div[1]//div[1]//div[1]//div[1]//div[1]//*[local-name()='svg']"
-    VT_HEADER = By.XPATH, "//span[contains(text(),'Voter Turnout')]" 
+    VT_HEADER = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]" 
     VT_SUBHEADER = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div[2]//div[1]//div[1]//div[1]//div[2]//span[2]"
     VT_PIE_CHART_REPORTED = By.XPATH, "//body/div[@id='root']/div/div/div/div/div/div/div[2]/div//*[local-name()='svg']//*[name()='text'][1]"
     VT_TOTAL = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div[2]//div[1]//div[1]//div[2]//div[1]//div[2]//div[2]"
-    VT_REPORTED = By.XPATH, "//div[contains(text(),'209,229')]"
+    VT_REPORTED = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]"
     VT_FAVORITE_ICON = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div[2]//div[1]//div[1]//div[3]//button[1]//span[1]//*[local-name()='svg']//*[name()='path' and contains(@d,'M12 21.35l')]"
     VT_SHARE_ICON = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div[2]//div[1]//div[1]//div[3]//button[2]//span[1]//*[local-name()='svg']//*[name()='path' and contains(@d,'M18 16.08c')]"
     VT_DROPDOWN_ARROW = By.XPATH, "//body//div[@id='root']//div//div//div//div//div//div[2]//div[1]//div[1]//div[3]//button[3]//span[1]//*[local-name()='svg']"
-    VT_TABLE_PARTY_HEADER = By.XPATH, "//th[contains(text(),'Party')]"
-    VT_TABLE_TURNOUT_HEADER = By.XPATH, "//th[contains(text(),'Turnout')]"
+    VT_TABLE_PARTY_HEADER = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/thead[1]/tr[1]/th[1]"
+    VT_TABLE_TURNOUT_HEADER = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/thead[1]/tr[1]/th[2]"
+
+    VT_TABLE_DEM = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[1]/tr[1]/th[1]"
+    VT_TABLE_DEM_TURNOUT = By.XPATH, "//tr[1]//td[1]"
+    VT_TABLE_REP = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/table[1]/tbody[1]/tr[2]/th[1]"
+    VT_TABLE_REP_TURNOUT = By.XPATH, "//tr[2]//td[1]"
+
     VT_GUIDE = By.XPATH, "//span[contains(text(),'Click a party row to see turnout in heatmap.')]"
 
     WALLBOARD_MAXIMIZE_ICON = By.XPATH, "//body/div/div/div/div/button/span[1]//*[local-name()='svg']"

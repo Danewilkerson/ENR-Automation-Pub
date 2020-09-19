@@ -159,12 +159,23 @@ class Test_06_VoterTurnout(EnrPublicApp):
         vt.assert_element_is_displayed(Locators.VT_SHARE_ICON)
         vt.assert_element_is_displayed(Locators.VT_DROPDOWN_ARROW)
 
-    def test_0601_voter_turnout_table_header_validations(self):
+    def test_0601_voter_turnout_table_validations(self):
         vt = BasePage(self.driver)
         vt.click(Locators.VT_DROPDOWN_ARROW)
         vt.assert_element_text(Locators.VT_TABLE_PARTY_HEADER, TestData.VT_TABLE_PARTY_HEADER_TEXT)
         vt.assert_element_text(Locators.VT_TABLE_TURNOUT_HEADER, TestData.VT_TABLE_TURNOUT_HEADER_TEXT)
+        vt.assert_element_text(Locators.VT_TABLE_DEM_TURNOUT, TestData.VT_TABLE_DEM_TURNOUT_TEXT)
+        vt.assert_element_text(Locators.VT_TABLE_REP_TURNOUT, TestData.VT_TABLE_REP_TURNOUT_TEXT)
+        vt.assert_element_text(Locators.VT_TABLE_DEM, TestData.VT_TABLE_DEM_TEXT)
+        vt.assert_element_text(Locators.VT_TABLE_REP, TestData.VT_TABLE_REP_TEXT)
         vt.assert_element_text(Locators.VT_GUIDE, TestData.VT_GUIDE_TEXT)
+        vt.click(Locators.VT_DROPDOWN_ARROW)
+
+    def test_0602_voter_turnout_table_click_party_to_view_on_heatmap(self):
+        vt = BasePage(self.driver)
+        vt.click(Locators.VT_DROPDOWN_ARROW)
+        vt.click(Locators.VT_TABLE_REP)
+        vt.click(Locators.VT_TABLE_DEM)
         vt.click(Locators.VT_DROPDOWN_ARROW)
 
 
@@ -174,7 +185,7 @@ class Test_07_WallBoard(EnrPublicApp):
         vt = BasePage(self.driver)
         vt.driver.get(TestData.WALLBOARD_BASE_URL)
         vt.click(Locators.WALLBOARD_MAXIMIZE_ICON)
-        vt.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 503)
+        vt.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 200)
 
 
 if __name__ == '__main__':

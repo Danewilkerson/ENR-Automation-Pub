@@ -42,3 +42,7 @@ class TestData():
     VT_TABLE_PARTY_HEADER_TEXT = "Party"
     VT_TABLE_TURNOUT_HEADER_TEXT = "Turnout"
     VT_GUIDE_TEXT = "Click a party row to see turnout in heatmap."
+
+# --- Wall Board Data ---
+    WALLBOARD_BASE_URL = f"https://{slug}.{env}.electionnightresults.com/wallboard/"
+    WALLBOARD_LATEST_STATUSES_URL = f"https://api.{env}.electionnightresults.com/api/v1/customers/397/elections/496/results-metafiles/latest-statuses"

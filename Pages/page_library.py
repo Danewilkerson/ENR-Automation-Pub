@@ -38,7 +38,7 @@ class BasePage():
     def assert_GET_status(self, request_url, expected_GET_status_code):
         r = requests.get(request_url)
         assert r.status_code == expected_GET_status_code
-        print(f"{request_url} recieved a GET status '200'")
+        print(f"{request_url} recieved expected GET status '{expected_GET_status_code}'")
 
     def enter_text(self, by_locator, text):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)

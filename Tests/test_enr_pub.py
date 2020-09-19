@@ -2,6 +2,7 @@ import sys, time, unittest
 sys.path.append(".")
 from HtmlTestRunner import HTMLTestRunner
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from Resources.test_data import TestData
 from Resources.locators import Locators
 from Pages.page_library import *
@@ -165,7 +166,15 @@ class Test_06_VoterTurnout(EnrPublicApp):
         vt.assert_element_text(Locators.VT_TABLE_TURNOUT_HEADER, TestData.VT_TABLE_TURNOUT_HEADER_TEXT)
         vt.assert_element_text(Locators.VT_GUIDE, TestData.VT_GUIDE_TEXT)
         vt.click(Locators.VT_DROPDOWN_ARROW)
-        time.sleep(1)
+
+
+class Test_07_WallBoard(EnrPublicApp):
+
+    def test_0700_wallboard_validations(self):
+        vt = BasePage(self.driver)
+        vt.driver.get(TestData.WALLBOARD_BASE_URL)
+        vt.click(Locators.WALLBOARD_MAXIMIZE_ICON)
+        vt.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 503)
 
 
 if __name__ == '__main__':

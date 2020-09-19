@@ -60,3 +60,5 @@ class Locators():
     VT_TABLE_PARTY_HEADER = By.XPATH, "//th[contains(text(),'Party')]"
     VT_TABLE_TURNOUT_HEADER = By.XPATH, "//th[contains(text(),'Turnout')]"
     VT_GUIDE = By.XPATH, "//span[contains(text(),'Click a party row to see turnout in heatmap.')]"
+
+    WALLBOARD_MAXIMIZE_ICON = By.XPATH, "//body/div/div/div/div/button/span[1]//*[local-name()='svg']"

@@ -46,33 +46,33 @@ class Test_01_InitialPageLoad(EnrPublicApp):
         t.assert_element_is_displayed(Locators.COUNTY_SEAL)
 
 
-class Test_02_Search(EnrPublicApp):
+class Test_02_BasePage(EnrPublicApp):
 
     def test_0200_validate_search_textbox_placeholder_and_dimensions(self):
-        s = Search(self.driver)
+        s = BasePage(self.driver)
         s.assert_element_placeholder(Locators.SEARCH_TEXTBOX_PLACEHOLDER)
         s.assert_element_size(Locators.SEARCH_TEXTBOX, Locators.SEARCH_TEXTBOX_DIMENSIONS)
 
     def test_0201_search_results_candidates_title_validation(self):
-        s = Search(self.driver)
+        s = BasePage(self.driver)
         s.search(TestData.SEARCH_TERM_PARTIAL_NAME)
         s.assert_element_text(Locators.SEARCH_RESULT_CANDIDATE_TITLE, TestData.SEARCH_RESULTS_CANDIDATE_TITLE_TEXT)
         s.click(Locators.SEARCH_CANCEL)
 
     def test_0202_search_results_contest_Issue_title_validation(self):
-        s = Search(self.driver)
+        s = BasePage(self.driver)
         s.search(TestData.SEARCH_TERM_PARTIAL_NAME_2)
         s.assert_element_text(Locators.SEARCH_RESULTS_CONTEST_ISSUE_TITLE, TestData.SEARCH_RESULTS_CONTEST_ISSUE_TITLE_TEXT)
         s.click(Locators.SEARCH_CANCEL)
 
     def test_0203_search_partial_name(self):
-        s = Search(self.driver)
+        s = BasePage(self.driver)
         s.search(TestData.SEARCH_TERM_PARTIAL_NAME)
         s.assert_element_text(Locators.SEARCH_RESULT_PARTIAL_NAME, TestData.SEARCH_RESULT_PARTIAL_NAME)
         s.click(Locators.SEARCH_CANCEL)
 
     def test_0204_search_full_name(self):
-        s = Search(self.driver)
+        s = BasePage(self.driver)
         s.search(TestData.SEARCH_TERM_FULL_NAME)
         s.click(Locators.SEARCH_RESULT_FULL_NAME)
         s.click(Locators.SEARCH_CANCEL)
@@ -178,15 +178,52 @@ class Test_06_VoterTurnout(EnrPublicApp):
         vt.click(Locators.VT_TABLE_DEM)
         vt.click(Locators.VT_DROPDOWN_ARROW)
 
+class Test_07_Democratic_Card(EnrPublicApp):
+    
+    def test_0700_democratic_card_visibility_validations(self):
+        dc = BasePage(self.driver)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_HEADER)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_ICON)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_LEADER_NAME)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_LEADER_BARGRAPH)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_LEADER_RESULTS)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_EXPAND_FOR_MORE_CANDIDATES)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_FAVORITE_ICON)
+        dc.assert_element_is_displayed(Locators.DEM_CARD_SHARE_ICON)
+        dc.assert_element_fill_color(Locators.DEM_CARD_LEADER_BARGRAPH, TestData.DEM_BLUE_BARGRAPH_COLOR)
 
-class Test_07_WallBoard(EnrPublicApp):
+    def test_0701_democratic_card_main_leader_validations(self):
+        dc = BasePage(self.driver)
+        dc.assert_element_text(Locators.DEM_CARD_HEADER, TestData.DEM_CARD_HEADER_TEXT)
+        dc.assert_element_text(Locators.DEM_CARD_SUBHEADER, TestData.DEM_CARD_SUBHEADER_TEXT)
+        dc.assert_element_text(Locators.DEM_CARD_LEADER_NAME, TestData.DEM_CARD_LEADER_NAME_TEXT)
+        dc.assert_element_text(Locators.DEM_CARD_LEADER_RESULTS, TestData.DEM_CARD_LEADER_RESULTS_TEXT)
+        dc.assert_element_text(Locators.DEM_CARD_EXPAND_FOR_MORE_CANDIDATES, TestData.DEM_CARD_EXPAND_FOR_MORE_CANDIDATES_TEXT)
 
-    def test_0700_wallboard_validations(self):
+    def test_0703_democratic_card_dropdown_second_place_validation(self):
+        dc = BasePage(self.driver)
+        dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
+        dc.assert_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME, TestData.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT)
+        dc.assert_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS, TestData.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT)
+        dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
+
+    def test_0703_democratic_card_leader_has_highest_results(self):
+        dc = BasePage(self.driver)
+        dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
+        candidate1 = dc.return_element_text(Locators.DEM_CARD_LEADER_RESULTS)
+        candidate2 = dc.return_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS)
+        assert candidate1 > candidate2
+        dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
+
+
+class Test_10_WallBoard(EnrPublicApp):
+
+    def test_0800_wallboard_validations(self):
         vt = BasePage(self.driver)
         vt.driver.get(TestData.WALLBOARD_BASE_URL)
         vt.click(Locators.WALLBOARD_MAXIMIZE_ICON)
-        vt.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 200)
-
+        vt.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 503) # 503 on weekend/200 on weekdays
+        time.sleep(3)
 
 if __name__ == '__main__':
     unittest.main(

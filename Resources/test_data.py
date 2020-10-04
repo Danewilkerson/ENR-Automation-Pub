@@ -1,6 +1,8 @@
 class TestData():
     slug = "wow" # Election Slug
     env = "stage" # Environment Variable ("Dev", "Stage")
+    customer_id = "397"
+    election_id = "496"
 
 # --- Page Data ---
     BASE_URL = f"https://{slug}.{env}.electionnightresults.com/"
@@ -49,4 +51,14 @@ class TestData():
 
 # --- Wall Board Data ---
     WALLBOARD_BASE_URL = f"https://{slug}.{env}.electionnightresults.com/wallboard/"
-    WALLBOARD_LATEST_STATUSES_URL = f"https://api.{env}.electionnightresults.com/api/v1/customers/397/elections/496/results-metafiles/latest-statuses"
+    WALLBOARD_LATEST_STATUSES_URL = f"https://api.{env}.electionnightresults.com/api/v1/customers/{customer_id}/elections/{election_id}/results-metafiles/latest-statuses"
+
+# --- Democratic Card Locators ---
+    DEM_CARD_HEADER_TEXT = "DEM Delegates-at-Large and Alternates-at-Large to the Na"
+    DEM_CARD_SUBHEADER_TEXT = "Last updated: August 31st, 2020 6:15 PM"
+    DEM_BLUE_BARGRAPH_COLOR = "#0D47A1"
+    DEM_CARD_LEADER_NAME_TEXT = "Joseph R. Biden, Jr."
+    DEM_CARD_LEADER_RESULTS_TEXT = "76.8%"
+    DEM_CARD_EXPAND_FOR_MORE_CANDIDATES_TEXT = "Expand for more candidates in this race"
+    DEM_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT = "Bernie Sanders"
+    DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT = "15.1%"

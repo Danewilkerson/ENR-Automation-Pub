@@ -67,3 +67,18 @@ class Locators():
 
 # --- Wall Board Locators ---
     WALLBOARD_MAXIMIZE_ICON = By.XPATH, "//body/div/div/div/div/button/span[1]//*[local-name()='svg']"
+
+# --- Democratic Card Locators ---
+    DEM_CARD_ICON = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[1]"
+    DEM_CARD_HEADER = By.XPATH, "//span[contains(text(),'DEM Delegates-at-Large and Alternates-at-Large to ')]"
+    DEM_CARD_SUBHEADER = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/span[2]"
+    DEM_CARD_LEADER_NAME = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]"
+    DEM_CARD_LEADER_RESULTS = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]"
+    DEM_CARD_LEADER_BARGRAPH = By.CSS_SELECTOR, "div.jss3 div.jss36 div.jss42 div.jss43 div.jss51 div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-4 div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-6.MuiGrid-grid-lg-4:nth-child(1) div.MuiPaper-root.MuiCard-root.jss56.MuiPaper-elevation1.MuiPaper-rounded div.MuiCardContent-root.jss62 div.jss79 div.jss86 div.jss87 svg:nth-child(1) > rect:nth-child(2)"
+    DEM_CARD_EXPAND_FOR_MORE_CANDIDATES = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]"
+    DEM_CARD_FAVORITE_ICON = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]/span[1]/*[1]"
+    DEM_CARD_SHARE_ICON = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[2]/span[1]/*[1]"
+    DEM_CARD_DROPDOWN_ARROW = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[3]/span[1]/*[1]"
+    DEM_CARD_DROPDOWN_SECOND_PLACE_NAME = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]"
+    DEM_CARD_DROPDOWN_SECOND_PLACE_BARGRAPH = By.CSS_SELECTOR, "div.jss3 div.jss36 div.jss42 div.jss43 div.jss51 div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-4 div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-6.MuiGrid-grid-lg-4:nth-child(1) div.MuiPaper-root.MuiCard-root.jss56.MuiPaper-elevation1.MuiPaper-rounded div.MuiCollapse-container.MuiCollapse-entered div.MuiCollapse-wrapper div.MuiCollapse-wrapperInner div.MuiCardContent-root div.jss110 div.jss113:nth-child(1) div.jss86 div.jss87 svg:nth-child(1) > rect:nth-child(2)"
+    DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]"

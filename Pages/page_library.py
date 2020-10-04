@@ -16,6 +16,10 @@ class BasePage():
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
         time.sleep(.5)
 
+    def return_element_text(self, by_locator):
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).get_attribute("textContent")
+        return element
+
     def print_element_text(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).get_attribute("textContent")
         print("Element text = " + element)
@@ -31,6 +35,10 @@ class BasePage():
     def assert_element_placeholder(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert element.get_attribute("placeholder") == "Search…"
+
+    def assert_element_fill_color(self, by_locator, color):
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        assert element.get_attribute("fill") == color
 
     def assert_element_is_displayed(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).is_displayed()
@@ -49,11 +57,6 @@ class BasePage():
         
     def wait_for_page_to_load(self):
         page = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(Locators.PR_HEADER))
-
-class Search(BasePage):
-
-    def __init__(self, driver):
-        self.driver=driver
 
     def search(self, text):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(Locators.SEARCH_TEXTBOX_PLACEHOLDER)).send_keys(text)

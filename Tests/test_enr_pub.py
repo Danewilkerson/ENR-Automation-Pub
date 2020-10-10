@@ -46,7 +46,7 @@ class Test_01_InitialPageLoad(EnrPublicApp):
         t.assert_element_is_displayed(Locators.COUNTY_SEAL)
 
 
-class Test_02_BasePage(EnrPublicApp):
+class Test_02_Search(EnrPublicApp):
 
     def test_0200_validate_search_textbox_placeholder_and_dimensions(self):
         s = BasePage(self.driver)

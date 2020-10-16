@@ -36,7 +36,7 @@ class Test_01_InitialPageLoad(EnrPublicApp):
         t.assert_GET_status(TestData.BUILDING_SVG_URL,200)
         t.assert_GET_status(TestData.CAPITAL_SVG_URL,200)
         t.assert_GET_status(TestData.ISSUE_SVG_URL,200)
-        print("Test Pass: All Initial GET items receive a '200' repsonse")
+        print("Test Pass: All Initial GET items receive a '200' response")
 
     def test_0101_validate_page_header_data_logoimage_and_sealimage(self):
         t = BasePage(self.driver)
@@ -54,28 +54,28 @@ class Test_02_Search(EnrPublicApp):
         s = BasePage(self.driver)
         s.assert_element_placeholder(Locators.SEARCH_TEXTBOX_PLACEHOLDER)
         s.assert_element_size(Locators.SEARCH_TEXTBOX, Locators.SEARCH_TEXTBOX_DIMENSIONS)
-        print("Test Pass: Search Field Placeholder is displays and Textbox Dimensions are correct")
+        print("Test Pass: Search Field Placeholder is displayed and Textbox Dimensions are correct")
 
     def test_0201_search_results_candidates_title_validation(self):
         s = BasePage(self.driver)
         s.search(TestData.SEARCH_TERM_PARTIAL_NAME)
         s.assert_element_text(Locators.SEARCH_RESULT_CANDIDATE_TITLE, TestData.SEARCH_RESULTS_CANDIDATE_TITLE_TEXT)
         s.click(Locators.SEARCH_CANCEL)
-        print("Test Pass: Candidate title is displayed in the search results")
+        print("Test Pass: Candidate title is displayed in the search results list")
 
     def test_0202_search_results_contest_Issue_title_validation(self):
         s = BasePage(self.driver)
         s.search(TestData.SEARCH_TERM_PARTIAL_NAME_2)
         s.assert_element_text(Locators.SEARCH_RESULTS_CONTEST_ISSUE_TITLE, TestData.SEARCH_RESULTS_CONTEST_ISSUE_TITLE_TEXT)
         s.click(Locators.SEARCH_CANCEL)
-        print("Test Pass: Issue Title is displayed in the search results")
+        print("Test Pass: Issue Title is displayed in the search results list")
 
     def test_0203_search_partial_name(self):
         s = BasePage(self.driver)
         s.search(TestData.SEARCH_TERM_PARTIAL_NAME)
         s.assert_element_text(Locators.SEARCH_RESULT_PARTIAL_NAME, TestData.SEARCH_RESULT_PARTIAL_NAME)
         s.click(Locators.SEARCH_CANCEL)
-        print("Test Pass: Able to search a partial name (min 3 characters")
+        print("Test Pass: Able to search a partial name (min 3 characters)")
 
     def test_0204_search_full_name(self):
         s = BasePage(self.driver)
@@ -83,7 +83,7 @@ class Test_02_Search(EnrPublicApp):
         s.assert_element_text(Locators.SEARCH_RESULT_FULL_NAME, TestData.SEARCH_RESULT_FULL_NAME)
         s.click(Locators.SEARCH_RESULT_FULL_NAME)
         s.click(Locators.SEARCH_CANCEL)
-        print("Test Pass: Able to search full name (min 3 characters")
+        print("Test Pass: Able to search full name (min 3 characters)")
 
 class Test_03_PartiesFilter(EnrPublicApp):
 
@@ -92,25 +92,25 @@ class Test_03_PartiesFilter(EnrPublicApp):
         pf.assert_element_text(Locators.PARTIES_FILTER_ALLPARTIES, Locators.PARTIES_FILTERS_ALLPARTIES_TEXT)
         pf.assert_element_text(Locators.PARTIES_FILTER_DEMOCRATIC, Locators.PARTIES_FILTERS_DEMOCRATIC_TEXT)
         pf.assert_element_text(Locators.PARTIES_FILTER_REPUBLICAN, Locators.PARTIES_FILTERS_REPUBLICAN_TEXT)
-        print("Test Pass: All parties are present in the parties filter")
+        print("Test Pass: All parties in the election are in the parties filter list")
 
     def test_0301_select_republican_from_parties_filter(self):
         pf = BasePage(self.driver)
         pf.click(Locators.PARTIES_FILTER_DROPDOWN)
         pf.click(Locators.PARTIES_FILTER_REPUBLICAN)
-        print("Test Pass: Able to select 'Republican' party from the parties filter")
+        print("Test Pass: Able to select 'Republican' party from the parties filter list")
 
     def test_0302_select_democratic_from_parties_filter(self):
         pf = BasePage(self.driver)
         pf.click(Locators.PARTIES_FILTER_DROPDOWN)
         pf.click(Locators.PARTIES_FILTER_DEMOCRATIC)
-        print("Test Pass: Able to select 'Democratic' party from the parties filter")
+        print("Test Pass: Able to select 'Democratic' party from the parties filter list")
 
     def test_0303_select_allparties_from_parties_filter(self):
         pf = BasePage(self.driver)
         pf.click(Locators.PARTIES_FILTER_DROPDOWN)
         pf.click(Locators.PARTIES_FILTER_ALLPARTIES)
-        print("Test Pass: Able to select 'All Parties' from the parties filter")
+        print("Test Pass: Able to select 'All Parties' from the parties filter list")
 
 
 class Test_04_DownloadResults(EnrPublicApp):
@@ -197,6 +197,7 @@ class Test_06_VoterTurnout(EnrPublicApp):
         vt.click(Locators.VT_TABLE_DEM)
         vt.click(Locators.VT_DROPDOWN_ARROW)
         print("Test Pass: Able to click a Party to view its results on the Heat Map")
+
 
 class Test_07_Democratic_Card(EnrPublicApp):
     
@@ -286,7 +287,7 @@ class Test_10_WallBoard(EnrPublicApp):
         vt = BasePage(self.driver)
         vt.driver.get(TestData.WALLBOARD_BASE_URL)
         vt.click(Locators.WALLBOARD_MAXIMIZE_ICON)
-        vt.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 503) # 503 on weekends and after 7pm during weekdays for dev
+        vt.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 200) # 503 on weekends and after 7pm during weekdays for dev
         print("Test Pass: Wallboard is displayed and Latest Status URL GETS a 200")
         time.sleep(3)
         

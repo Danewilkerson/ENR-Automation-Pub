@@ -50,3 +50,54 @@
 **Testing:**
 * Python comes with testing framework Unittest. [Unittest Documentation](https://docs.python.org/3/library/unittest.html)
 * How to write and run tests [Running & Writing Tests](https://devguide.python.org/runtests/)
+
+## Current test coverage
+**Validate Initial Page Responses:**
+* All Initial GET items receive a '200' response
+* Page Header Data/Text, Logo Image and Seal Image are displayed
+
+**Searching:**
+* Search Field Placeholder is displayed and Textbox Dimensions are correct
+* Candidate title is displayed in the search results list
+* Issue Title is displayed in the search results list
+* Able to search a partial name (min 3 characters)
+* Able to search full name (min 3 characters)
+
+**Parties Filter:**
+* All parties in the election are in the parties filter list
+* Able to select 'Republican' party from the parties filter list
+* Able to select 'Democratic' party from the parties filter list
+* Able to select 'All Parties' from the parties filter list
+
+**Download Results:**
+* Download button text is correct and dimensions of the button are correct
+* Able to click and download the results file.  File url gets a 200 response
+
+**Precint Reporting Card:**
+* All elements in the 'Precinct Reporting Card' are displayed
+* Precinct Report table headers are displayed and correct
+* Able to sort the Precinct Reporting tables 'Voter Turnout' column
+
+**Voter Turnout Card:**
+* All elements in the 'Voter Turnout Card' are displayed
+* Voter Turnout table headers are displayed and correct
+* Able to click a Party to view its results on the Heat Map
+
+**Democratic Card:**
+* All Democratic Card visual elements are displayed
+* All Democratic Leader data is displayed and correct
+* Democratic 2nd place candidate data is correct
+* Democratic Leaders has higher result than 2nd place(Descending Order)
+
+**Republican Card:**
+* All Republican Card visual elements are displayed
+* All Republican Leader data is displayed and correct
+* Republican 2nd place candidate data is correct
+* Republican Leaders has higher result than 2nd place(Descending Order)
+
+**Issues Card:**
+* In process of writing tests
+
+**WallBoard:**
+* Wallboard is displayed and Latest Status URL GETS a 200
+* In proces of writing more tests...

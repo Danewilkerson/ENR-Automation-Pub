@@ -1,3 +1,10 @@
 Resources/__pycache__/locators.cpython-38.pyc
 Resources/__pycache__/test_data.cpython-38.pyc
 Pages/__pycache__/page_library.cpython-38.pyc
+Tests/__pycache__/test_enrPub.cpython-38.pyc
+Tests/__pycache__/test_enrPub.cpython-38-pytest-6.0.1.pyc
+Tests/__pycache__/test_enr_pub.cpython-38.pyc
+Tests/__pycache__/__init__.cpython-38.pyc
+Resources/__pycache__/test_data.cpython-38-pytest-6.0.1.pyc
+Resources/__pycache__/__init__.cpython-38.pyc
+Pages/__pycache__/__init__.cpython-38.pyc

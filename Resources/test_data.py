@@ -62,3 +62,13 @@ class TestData():
     DEM_CARD_EXPAND_FOR_MORE_CANDIDATES_TEXT = "Expand for more candidates in this race"
     DEM_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT = "Bernie Sanders"
     DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT = "15.1%"
+
+# --- Republican Card Locators ---
+    REP_CARD_HEADER_TEXT = "REP Representative to Congress (10th District)"
+    REP_CARD_SUBHEADER_TEXT = "Last updated: August 31st, 2020 6:15 PM"
+    REP_RED_BARGRAPH_COLOR = "#d50000"
+    REP_CARD_LEADER_NAME_TEXT = "Mike Turner"
+    REP_CARD_LEADER_RESULTS_TEXT = "87.6%"
+    REP_CARD_EXPAND_FOR_MORE_CANDIDATES_TEXT = "Expand for more candidates in this race"
+    REP_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT = "John Anderson"
+    REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT = "7.1%"

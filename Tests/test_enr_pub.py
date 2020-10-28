@@ -14,7 +14,8 @@ class EnrPublicApp(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
-        cls.driver.maximize_window()
+        cls.driver.set_window_size(1920, 1080)
+        # cls.driver.maximize_window()
         cls.driver.get(cls.url)
         cls.driver.implicitly_wait(10)
         WebDriverWait(cls.driver, 10).until(EC.visibility_of_element_located(Locators.PR_HEADER))

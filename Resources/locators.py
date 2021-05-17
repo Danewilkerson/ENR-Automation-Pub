@@ -70,7 +70,7 @@ class Locators():
 
 # --- Democratic Card Locators ---
     DEM_CARD_ICON = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[1]"
-    DEM_CARD_HEADER = By.XPATH, "//span[contains(text(),'DEM Delegates-at-Large and Alternates-at-Large to ')]"
+    DEM_CARD_HEADER = By.XPATH, "//span[contains(text(),'DEM Delegates-at-Large and Alternates-at-Large to the Na')]"
     DEM_CARD_SUBHEADER = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/span[2]"
     DEM_CARD_LEADER_NAME = By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]"
     DEM_CARD_LEADER_RESULTS = By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]"

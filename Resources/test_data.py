@@ -31,14 +31,14 @@ class TestData():
     DOWNLOAD_RESULTS_FILE_URL = f"https://data.{env}.electionnightresults.com/{slug}/results/results.txt"
 
 # --- Precinct Reporting Card Data ---
-    PRECINCT_REPORTING_SUBHEADER = "Last updated: August 31st, 2020 6:15 PM"
+    PRECINCT_REPORTING_SUBHEADER = "Last updated: November 4th, 2020 7:05 AM"
     PRECINCT_REPORTING_TOTAL = "360"
     PRECINCT_REPORTING_REPORTED = "350"
     PR_TABLE_PRECINCT_HEADER_TEXT = "Precinct"
     PR_TABLE_TURNOUT_HEADER_TEXT = "Turnout"
 
 # --- Voter Turnout Card Data ---
-    VOTER_TURNOUT_SUBHEADER = "Last updated: August 31st, 2020 6:15 PM"
+    VOTER_TURNOUT_SUBHEADER = "Last updated: November 4th, 2020 7:05 AM"
     VOTER_TURNOUT_TOTAL = "1,080,426"
     VOTER_TURNOUT_REPORTED = "209,229"
     VT_TABLE_PARTY_HEADER_TEXT = "Party"
@@ -55,7 +55,7 @@ class TestData():
 
 # --- Democratic Card Locators ---
     DEM_CARD_HEADER_TEXT = "DEM Delegates-at-Large and Alternates-at-Large to the Na"
-    DEM_CARD_SUBHEADER_TEXT = "Last updated: August 31st, 2020 6:15 PM"
+    DEM_CARD_SUBHEADER_TEXT = "Last updated: November 4th, 2020 7:05 AM"
     DEM_BLUE_BARGRAPH_COLOR = "#0D47A1"
     DEM_CARD_LEADER_NAME_TEXT = "Joseph R. Biden, Jr."
     DEM_CARD_LEADER_RESULTS_TEXT = "76.8%"
@@ -65,7 +65,7 @@ class TestData():
 
 # --- Republican Card Locators ---
     REP_CARD_HEADER_TEXT = "REP Representative to Congress (10th District)"
-    REP_CARD_SUBHEADER_TEXT = "Last updated: August 31st, 2020 6:15 PM"
+    REP_CARD_SUBHEADER_TEXT = "Last updated: November 4th, 2020 7:05 AM"
     REP_RED_BARGRAPH_COLOR = "#d50000"
     REP_CARD_LEADER_NAME_TEXT = "Mike Turner"
     REP_CARD_LEADER_RESULTS_TEXT = "87.6%"

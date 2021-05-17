@@ -15,6 +15,19 @@
 - Full Regression with the click of a button
 - Reducing testing time by up to 90%!
 
+## Run Tests
+
+**Run Tests**
+
+    pytest filename.py
+
+**Run Single Test with Reporting**
+
+    Run Single File: pytest filename.py --html=report.html --html-report=./report -rA
+
+**Run Entire Test Suite with Reporting**
+
+    Run Entire Suite: pytest --html=report.html --html-report=./report -rA
 
 ## Code Examples
 

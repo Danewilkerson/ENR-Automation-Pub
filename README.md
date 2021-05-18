@@ -23,11 +23,11 @@
 
 **Run Single Test with Reporting**
 
-    Run Single File: pytest filename.py --html=report.html --html-report=./report -rA
+    pytest filename.py --html=./reports/report.html --html-report=./reports/dashboard.html -rA
 
 **Run Entire Test Suite with Reporting**
 
-    Run Entire Suite: pytest --html=report.html --html-report=./report -rA
+    pytest --html=./reports/report.html --html-report=./reports/dashboard.html -rA
 
 ## Code Examples
 

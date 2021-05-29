@@ -9,33 +9,21 @@ from Resources.locators import Locators
 from Pages.page_library import *
 
 
-class EnrPublicApp(unittest.TestCase):
-    url = TestData.BASE_URL
-    logger=LogGen.loggen()
-
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = webdriver.Chrome()
-        cls.driver.set_window_size(1920, 1080)
-        cls.driver.maximize_window()
-        cls.driver.get(cls.url)
-        cls.driver.implicitly_wait(10)
-        WebDriverWait(cls.driver, 10).until(EC.visibility_of_element_located(Locators.PR_HEADER))
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.close()
-        cls.driver.quit()
-
 @allure.severity(allure.severity_level.NORMAL)
-class Test_01_Full_Functional_Regression(EnrPublicApp):    
+class Test_01_Full_Functional_Regression:
+    url = TestData.BASE_URL
+    logger=LogGen.loggen()    
     
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0100_enr_functional_regression_test(self):
-        t = BasePage(self.driver)
+    def test_0100_enr_functional_regression_test(self, setup):
+        driver = setup
+        driver.get(self.url)
+        driver.set_window_size(1920, 1080)
+
+        t = BasePage(driver)
         self.logger.info("************* Starting ENR Regression Tests *************")
         self.logger.info("************* Starting: test_0100_validate_page_responses")
-        assert self.driver.title == TestData.PAGE_TITLE
+        assert driver.title == TestData.PAGE_TITLE
         t.assert_GET_status(TestData.BASE_URL,200)
         t.assert_GET_status(TestData.RESULTS_JSON_URL,200)
         t.assert_GET_status(TestData.MAP_TOPO_JSON_URL,200)
@@ -50,8 +38,9 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         t.assert_element_is_displayed(Locators.ENR_LOGO)
         t.assert_element_is_displayed(Locators.COUNTY_SEAL)
         self.logger.info("Test Pass: Page Header Data/Text, Logo Image and Seal Image are displayed")
+        
         self.logger.info("************* Starting: test_0200_validate_search_textbox_placeholder_and_dimensions")
-        s = BasePage(self.driver)
+        s = BasePage(driver)
         s.assert_element_placeholder(Locators.SEARCH_TEXTBOX_PLACEHOLDER)
         s.assert_element_size(Locators.SEARCH_TEXTBOX, Locators.SEARCH_TEXTBOX_DIMENSIONS)
         self.logger.info("Test Pass: Search Field Placeholder is displayed and Textbox Dimensions are correct")
@@ -78,7 +67,7 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         self.logger.info("Test Pass: Able to search full name (min 3 characters)")
 
         self.logger.info("************* Starting: test_0300_assert_all_parties_are_present_in_filter")
-        pf = BasePage(self.driver)
+        pf = BasePage(driver)
         pf.assert_element_text(Locators.PARTIES_FILTER_ALLPARTIES, Locators.PARTIES_FILTERS_ALLPARTIES_TEXT)
         pf.assert_element_text(Locators.PARTIES_FILTER_DEMOCRATIC, Locators.PARTIES_FILTERS_DEMOCRATIC_TEXT)
         pf.assert_element_text(Locators.PARTIES_FILTER_REPUBLICAN, Locators.PARTIES_FILTERS_REPUBLICAN_TEXT)
@@ -96,19 +85,8 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         pf.click(Locators.PARTIES_FILTER_ALLPARTIES)
         self.logger.info("Test Pass: Able to select 'All Parties' from the parties filter list")
 
-        self.logger.info("************* Starting: test_0400_validate_download_results_button_text_and_dimensions")
-        dl = BasePage(self.driver)
-        dl.assert_element_text(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_TEXT)
-        dl.assert_element_size(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_DIMENSIONS)
-        self.logger.info("Test Pass: Download button text is correct and dimensions of the button are correct")
-        self.logger.info("************* Starting: test_0401_download_results_file")
-        dl.click(Locators.DOWNLOAD_RESULTS_BUTTON)
-        time.sleep(3)
-        dl.assert_GET_status(TestData.DOWNLOAD_RESULTS_FILE_URL, 200)
-        self.logger.info("Test Pass: Able to click and download the results file.  File url gets a 200 response")
-
-        self.logger.info("************* Starting: test_0500_precinct_reporting_card_validations")
-        pr = BasePage(self.driver)
+        self.logger.info("************* Starting: test_0400_precinct_reporting_card_validations")
+        pr = BasePage(driver)
         pr.assert_element_is_displayed(Locators.PR_ICON)
         pr.assert_element_is_displayed(Locators.PR_HEADER)
         pr.assert_element_is_displayed(Locators.PR_SUBHEADER)
@@ -120,21 +98,21 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         pr.assert_element_is_displayed(Locators.PR_SHARE_ICON)
         pr.assert_element_is_displayed(Locators.PR_DROPDOWN_ARROW)
         self.logger.info("Test Pass: All elements in the 'Precinct Reporting Card' are displayed")
-        self.logger.info("************* Starting: test_0501_precinct_reporting_table_header_validations")
+        self.logger.info("************* Starting: test_0401_precinct_reporting_table_header_validations")
         pr.click(Locators.PR_DROPDOWN_ARROW)
         pr.assert_element_text(Locators.PR_TABLE_PRECINCT_HEADER, TestData.PR_TABLE_PRECINCT_HEADER_TEXT)
         pr.assert_element_text(Locators.PR_TABLE_TURNOUT_HEADER, TestData.PR_TABLE_TURNOUT_HEADER_TEXT)
         pr.click(Locators.PR_DROPDOWN_ARROW)
         self.logger.info("Test Pass: Precinct Report table headers are displayed and correct")
-        self.logger.info("************* Starting: test_0502_precinct_reporting_sort_turnout_table_header")
+        self.logger.info("************* Starting: test_0402_precinct_reporting_sort_turnout_table_header")
         pr.click(Locators.PR_DROPDOWN_ARROW)
         pr.click(Locators.PR_TABLE_TURNOUT_HEADER)
         pr.click(Locators.PR_TABLE_TURNOUT_HEADER)
         pr.click(Locators.PR_DROPDOWN_ARROW)
         self.logger.info("Test Pass: Able to sort the Precinct Reporting tables 'Voter Turnout' column")
 
-        self.logger.info("************* Starting: test_0600_voter_turnout_card_validations")
-        vt = BasePage(self.driver)
+        self.logger.info("************* Starting: test_0500_voter_turnout_card_validations")
+        vt = BasePage(driver)
         vt.assert_element_is_displayed(Locators.VT_ICON)
         vt.assert_element_is_displayed(Locators.VT_HEADER)
         vt.assert_element_is_displayed(Locators.VT_SUBHEADER)
@@ -145,7 +123,7 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         vt.assert_element_is_displayed(Locators.VT_SHARE_ICON)
         vt.assert_element_is_displayed(Locators.VT_DROPDOWN_ARROW)
         self.logger.info("Test Pass: All elements in the 'Voter Turnout Card' are displayed")
-        self.logger.info("************* Starting: test_0601_voter_turnout_table_validations")
+        self.logger.info("************* Starting: test_0501_voter_turnout_table_validations")
         vt.click(Locators.VT_DROPDOWN_ARROW)
         vt.assert_element_text(Locators.VT_TABLE_PARTY_HEADER, TestData.VT_TABLE_PARTY_HEADER_TEXT)
         vt.assert_element_text(Locators.VT_TABLE_TURNOUT_HEADER, TestData.VT_TABLE_TURNOUT_HEADER_TEXT)
@@ -156,15 +134,15 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         vt.assert_element_text(Locators.VT_GUIDE, TestData.VT_GUIDE_TEXT)
         vt.click(Locators.VT_DROPDOWN_ARROW)
         self.logger.info("Test Pass: Voter Turnout table headers are displayed and correct")
-        self.logger.info("************* Starting: test_0602_voter_turnout_table_click_party_to_view_on_heatmap")
+        self.logger.info("************* Starting: test_0502_voter_turnout_table_click_party_to_view_on_heatmap")
         vt.click(Locators.VT_DROPDOWN_ARROW)
         vt.click(Locators.VT_TABLE_REP)
         vt.click(Locators.VT_TABLE_DEM)
         vt.click(Locators.VT_DROPDOWN_ARROW)
         self.logger.info("Test Pass: Able to click a Party to view its results on the Heat Map")
 
-        self.logger.info("************* Starting: test_0700_democratic_card_visibility_validations")
-        dc = BasePage(self.driver)
+        self.logger.info("************* Starting: test_0600_democratic_card_visibility_validations")
+        dc = BasePage(driver)
         dc.click(Locators.PARTIES_FILTER_DROPDOWN)
         dc.click(Locators.PARTIES_FILTER_DEMOCRATIC)
         dc.assert_element_is_displayed(Locators.DEM_CARD_HEADER)
@@ -177,24 +155,25 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         dc.assert_element_is_displayed(Locators.DEM_CARD_SHARE_ICON)
         dc.assert_element_fill_color(Locators.DEM_CARD_LEADER_BARGRAPH, TestData.DEM_BLUE_BARGRAPH_COLOR)
         self.logger.info("Test Pass: All Democratic Card visual elements are displayed")
-        self.logger.info("************* Starting: test_0701_democratic_card_main_leader_validations")
+        self.logger.info("************* Starting: test_0601_democratic_card_main_leader_validations")
         dc.assert_element_text(Locators.DEM_CARD_HEADER, TestData.DEM_CARD_HEADER_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_SUBHEADER, TestData.DEM_CARD_SUBHEADER_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_LEADER_NAME, TestData.DEM_CARD_LEADER_NAME_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_LEADER_RESULTS, TestData.DEM_CARD_LEADER_RESULTS_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_EXPAND_FOR_MORE_CANDIDATES, TestData.DEM_CARD_EXPAND_FOR_MORE_CANDIDATES_TEXT)
         self.logger.info("Test Pass: All Democratic Leader data is displayed and correct")
-        self.logger.info("************* Starting: test_0702_democratic_card_dropdown_second_place_validation")
+        self.logger.info("************* Starting: test_0602_democratic_card_dropdown_second_place_validation")
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
         dc.assert_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME, TestData.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS, TestData.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT)
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
         self.logger.info("Test Pass: Democratic 2nd place candidate data is correct")
-        self.logger.info("************* Starting: test_0703_democratic_card_leader_has_highest_results")
+        self.logger.info("************* Starting: test_0603_democratic_card_leader_has_highest_results")
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
         dc.assert_contest_leader(Locators.DEM_CARD_LEADER_RESULTS, Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS)
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
-        self.logger.info("************* Starting: test_0800_republican_card_visibility_validations")
+
+        self.logger.info("************* Starting: test_0700_republican_card_visibility_validations")
         dc.click(Locators.PARTIES_FILTER_DROPDOWN)
         dc.click(Locators.PARTIES_FILTER_REPUBLICAN)
         dc.assert_element_is_displayed(Locators.REP_CARD_HEADER)
@@ -207,33 +186,44 @@ class Test_01_Full_Functional_Regression(EnrPublicApp):
         dc.assert_element_is_displayed(Locators.REP_CARD_SHARE_ICON)
         dc.assert_element_fill_color(Locators.REP_CARD_LEADER_BARGRAPH, TestData.REP_RED_BARGRAPH_COLOR)
         self.logger.info("Test Pass: All Republican Card visual elements are displayed")
-        self.logger.info("************* Starting: test_0801_republican_card_main_leader_validations")
+        self.logger.info("************* Starting: test_0701_republican_card_main_leader_validations")
         dc.assert_element_text(Locators.REP_CARD_HEADER, TestData.REP_CARD_HEADER_TEXT)
         dc.assert_element_text(Locators.REP_CARD_SUBHEADER, TestData.REP_CARD_SUBHEADER_TEXT)
         dc.assert_element_text(Locators.REP_CARD_LEADER_NAME, TestData.REP_CARD_LEADER_NAME_TEXT)
         dc.assert_element_text(Locators.REP_CARD_LEADER_RESULTS, TestData.REP_CARD_LEADER_RESULTS_TEXT)
         dc.assert_element_text(Locators.REP_CARD_EXPAND_FOR_MORE_CANDIDATES, TestData.REP_CARD_EXPAND_FOR_MORE_CANDIDATES_TEXT)
         self.logger.info("Test Pass: All Republican Leader data is displayed and correct")
-        self.logger.info("************* Starting: test_0802_republican_card_dropdown_second_place_validation")
+        self.logger.info("************* Starting: test_0702_republican_card_dropdown_second_place_validation")
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         dc.assert_element_text(Locators.REP_CARD_DROPDOWN_SECOND_PLACE_NAME, TestData.REP_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT)
         dc.assert_element_text(Locators.REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS, TestData.REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT)
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         self.logger.info("Test Pass: Republican 2nd place candidate data is correct")
-        self.logger.info("************* Starting: test_0803_republican_card_leader_has_highest_results")
+        self.logger.info("************* Starting: test_0703_republican_card_leader_has_highest_results")
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         dc.assert_contest_leader(Locators.REP_CARD_LEADER_RESULTS, Locators.REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS)
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         self.logger.info("Test Pass: Republican Leader has highest results")
 
-        self.logger.info("************* Starting: test_0800_wallboard_validations")
-        wb = BasePage(self.driver)
+        self.logger.info("************* Starting: test_0800_validate_download_results_button_text_and_dimensions")
+        dl = BasePage(driver)
+        dl.assert_element_text(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_TEXT)
+        dl.assert_element_size(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_DIMENSIONS)
+        self.logger.info("Test Pass: Download button text is correct and dimensions of the button are correct")
+        self.logger.info("************* Starting: test_0801_download_results_file")
+        dl.click(Locators.DOWNLOAD_RESULTS_BUTTON)
+        time.sleep(3)
+        dl.assert_GET_status(TestData.DOWNLOAD_RESULTS_FILE_URL, 200)
+        self.logger.info("Test Pass: Able to click and download the results file.  File url gets a 200 response")
+
+        self.logger.info("************* Starting: test_0900_wallboard_validations")
+        wb = BasePage(driver)
         wb.driver.get(TestData.WALLBOARD_BASE_URL)
         wb.click(Locators.WALLBOARD_MAXIMIZE_ICON)
         # wb.assert_GET_status(TestData.WALLBOARD_LATEST_STATUSES_URL, 503) # 503 on weekends and after 7pm during weekdays for dev
         self.logger.info("Test Pass: Wallboard is displayed and Latest Status URL GETS a 200")
         time.sleep(3)
-        self.logger.info("************* Starting ENR Regression Tests *************")
+        self.logger.info("************* Completed ENR Regression Tests *************")
 
 
 if __name__ == '__main__':

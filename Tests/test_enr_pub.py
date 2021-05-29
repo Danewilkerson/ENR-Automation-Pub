@@ -141,31 +141,11 @@ class Test_03_PartiesFilter(EnrPublicApp):
         self.logger.info("Test Pass: Able to select 'All Parties' from the parties filter list")
 
 @allure.severity(allure.severity_level.CRITICAL)
-class Test_04_DownloadResults(EnrPublicApp):
+class Test_04_PrecinctReporting(EnrPublicApp):
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0400_validate_download_results_button_text_and_dimensions(self):
-        self.logger.info("************* Starting: test_0400_validate_download_results_button_text_and_dimensions")
-        dl = BasePage(self.driver)
-        dl.assert_element_text(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_TEXT)
-        dl.assert_element_size(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_DIMENSIONS)
-        self.logger.info("Test Pass: Download button text is correct and dimensions of the button are correct")
-
-    @allure.severity(allure.severity_level.NORMAL)
-    def test_0401_download_results_file(self):
-        self.logger.info("************* Starting: test_0401_download_results_file")
-        dl = BasePage(self.driver)
-        dl.click(Locators.DOWNLOAD_RESULTS_BUTTON)
-        time.sleep(3)
-        dl.assert_GET_status(TestData.DOWNLOAD_RESULTS_FILE_URL, 200)
-        self.logger.info("Test Pass: Able to click and download the results file.  File url gets a 200 response")
-
-@allure.severity(allure.severity_level.CRITICAL)
-class Test_05_PrecinctReporting(EnrPublicApp):
-
-    @allure.severity(allure.severity_level.NORMAL)
-    def test_0500_precinct_reporting_card_validations(self):
-        self.logger.info("************* Starting: test_0500_precinct_reporting_card_validations")
+    def test_0400_precinct_reporting_card_validations(self):
+        self.logger.info("************* Starting: test_0400_precinct_reporting_card_validations")
         pr = BasePage(self.driver)
         pr.assert_element_is_displayed(Locators.PR_ICON)
         pr.assert_element_is_displayed(Locators.PR_HEADER)
@@ -180,8 +160,8 @@ class Test_05_PrecinctReporting(EnrPublicApp):
         self.logger.info("Test Pass: All elements in the 'Precinct Reporting Card' are displayed")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0501_precinct_reporting_table_header_validations(self):
-        self.logger.info("************* Starting: test_0501_precinct_reporting_table_header_validations")
+    def test_0401_precinct_reporting_table_header_validations(self):
+        self.logger.info("************* Starting: test_0401_precinct_reporting_table_header_validations")
         pr = BasePage(self.driver)
         pr.click(Locators.PR_DROPDOWN_ARROW)
         pr.assert_element_text(Locators.PR_TABLE_PRECINCT_HEADER, TestData.PR_TABLE_PRECINCT_HEADER_TEXT)
@@ -190,8 +170,8 @@ class Test_05_PrecinctReporting(EnrPublicApp):
         self.logger.info("Test Pass: Precinct Report table headers are displayed and correct")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0502_precinct_reporting_sort_turnout_table_header(self):
-        self.logger.info("************* Starting: test_0502_precinct_reporting_sort_turnout_table_header")
+    def test_0402_precinct_reporting_sort_turnout_table_header(self):
+        self.logger.info("************* Starting: test_0402_precinct_reporting_sort_turnout_table_header")
         pr = BasePage(self.driver)
         pr.click(Locators.PR_DROPDOWN_ARROW)
         pr.click(Locators.PR_TABLE_TURNOUT_HEADER)
@@ -200,11 +180,11 @@ class Test_05_PrecinctReporting(EnrPublicApp):
         self.logger.info("Test Pass: Able to sort the Precinct Reporting tables 'Voter Turnout' column")
 
 @allure.severity(allure.severity_level.CRITICAL)
-class Test_06_VoterTurnout(EnrPublicApp):
+class Test_05_VoterTurnout(EnrPublicApp):
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0600_voter_turnout_card_validations(self):
-        self.logger.info("************* Starting: test_0600_voter_turnout_card_validations")
+    def test_0500_voter_turnout_card_validations(self):
+        self.logger.info("************* Starting: test_0500_voter_turnout_card_validations")
         vt = BasePage(self.driver)
         vt.assert_element_is_displayed(Locators.VT_ICON)
         vt.assert_element_is_displayed(Locators.VT_HEADER)
@@ -218,8 +198,8 @@ class Test_06_VoterTurnout(EnrPublicApp):
         self.logger.info("Test Pass: All elements in the 'Voter Turnout Card' are displayed")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0601_voter_turnout_table_validations(self):
-        self.logger.info("************* Starting: test_0601_voter_turnout_table_validations")
+    def test_0501_voter_turnout_table_validations(self):
+        self.logger.info("************* Starting: test_0501_voter_turnout_table_validations")
         vt = BasePage(self.driver)
         vt.click(Locators.VT_DROPDOWN_ARROW)
         vt.assert_element_text(Locators.VT_TABLE_PARTY_HEADER, TestData.VT_TABLE_PARTY_HEADER_TEXT)
@@ -233,8 +213,8 @@ class Test_06_VoterTurnout(EnrPublicApp):
         self.logger.info("Test Pass: Voter Turnout table headers are displayed and correct")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0602_voter_turnout_table_click_party_to_view_on_heatmap(self):
-        self.logger.info("************* Starting: test_0602_voter_turnout_table_click_party_to_view_on_heatmap")
+    def test_0502_voter_turnout_table_click_party_to_view_on_heatmap(self):
+        self.logger.info("************* Starting: test_0502_voter_turnout_table_click_party_to_view_on_heatmap")
         vt = BasePage(self.driver)
         vt.click(Locators.VT_DROPDOWN_ARROW)
         vt.click(Locators.VT_TABLE_REP)
@@ -243,11 +223,11 @@ class Test_06_VoterTurnout(EnrPublicApp):
         self.logger.info("Test Pass: Able to click a Party to view its results on the Heat Map")
 
 @allure.severity(allure.severity_level.CRITICAL)
-class Test_07_Democratic_Card(EnrPublicApp):
+class Test_06_Democratic_Card(EnrPublicApp):
 
     @allure.severity(allure.severity_level.NORMAL)    
-    def test_0700_democratic_card_visibility_validations(self):
-        self.logger.info("************* Starting: test_0700_democratic_card_visibility_validations")
+    def test_0600_democratic_card_visibility_validations(self):
+        self.logger.info("************* Starting: test_0600_democratic_card_visibility_validations")
         dc = BasePage(self.driver)
         dc.click(Locators.PARTIES_FILTER_DROPDOWN)
         dc.click(Locators.PARTIES_FILTER_DEMOCRATIC)
@@ -263,8 +243,8 @@ class Test_07_Democratic_Card(EnrPublicApp):
         self.logger.info("Test Pass: All Democratic Card visual elements are displayed")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0701_democratic_card_main_leader_validations(self):
-        self.logger.info("************* Starting: test_0701_democratic_card_main_leader_validations")
+    def test_0601_democratic_card_main_leader_validations(self):
+        self.logger.info("************* Starting: test_0601_democratic_card_main_leader_validations")
         dc = BasePage(self.driver)
         dc.assert_element_text(Locators.DEM_CARD_HEADER, TestData.DEM_CARD_HEADER_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_SUBHEADER, TestData.DEM_CARD_SUBHEADER_TEXT)
@@ -274,8 +254,8 @@ class Test_07_Democratic_Card(EnrPublicApp):
         self.logger.info("Test Pass: All Democratic Leader data is displayed and correct")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0702_democratic_card_dropdown_second_place_validation(self):
-        self.logger.info("************* Starting: test_0702_democratic_card_dropdown_second_place_validation")
+    def test_0602_democratic_card_dropdown_second_place_validation(self):
+        self.logger.info("************* Starting: test_0602_democratic_card_dropdown_second_place_validation")
         dc = BasePage(self.driver)
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
         dc.assert_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME, TestData.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT)
@@ -284,8 +264,8 @@ class Test_07_Democratic_Card(EnrPublicApp):
         self.logger.info("Test Pass: Democratic 2nd place candidate data is correct")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0703_democratic_card_leader_has_highest_results(self):
-        self.logger.info("************* Starting: test_0703_democratic_card_leader_has_highest_results")
+    def test_0603_democratic_card_leader_has_highest_results(self):
+        self.logger.info("************* Starting: test_0603_democratic_card_leader_has_highest_results")
         dc = BasePage(self.driver)
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
         dc.assert_contest_leader(Locators.DEM_CARD_LEADER_RESULTS, Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS)
@@ -294,11 +274,11 @@ class Test_07_Democratic_Card(EnrPublicApp):
         
 
 @allure.severity(allure.severity_level.CRITICAL)
-class Test_08_Republican_Card(EnrPublicApp):
+class Test_05_Republican_Card(EnrPublicApp):
 
     @allure.severity(allure.severity_level.NORMAL)    
-    def test_0800_republican_card_visibility_validations(self):
-        self.logger.info("************* Starting: test_0800_republican_card_visibility_validations")
+    def test_0700_republican_card_visibility_validations(self):
+        self.logger.info("************* Starting: test_0700_republican_card_visibility_validations")
         dc = BasePage(self.driver)
         dc.click(Locators.PARTIES_FILTER_DROPDOWN)
         dc.click(Locators.PARTIES_FILTER_REPUBLICAN)
@@ -314,8 +294,8 @@ class Test_08_Republican_Card(EnrPublicApp):
         self.logger.info("Test Pass: All Republican Card visual elements are displayed")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0801_republican_card_main_leader_validations(self):
-        self.logger.info("************* Starting: test_0801_republican_card_main_leader_validations")
+    def test_0701_republican_card_main_leader_validations(self):
+        self.logger.info("************* Starting: test_0701_republican_card_main_leader_validations")
         dc = BasePage(self.driver)
         dc.assert_element_text(Locators.REP_CARD_HEADER, TestData.REP_CARD_HEADER_TEXT)
         dc.assert_element_text(Locators.REP_CARD_SUBHEADER, TestData.REP_CARD_SUBHEADER_TEXT)
@@ -325,8 +305,8 @@ class Test_08_Republican_Card(EnrPublicApp):
         self.logger.info("Test Pass: All Republican Leader data is displayed and correct")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0802_republican_card_dropdown_second_place_validation(self):
-        self.logger.info("************* Starting: test_0802_republican_card_dropdown_second_place_validation")
+    def test_0702_republican_card_dropdown_second_place_validation(self):
+        self.logger.info("************* Starting: test_0702_republican_card_dropdown_second_place_validation")
         dc = BasePage(self.driver)
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         dc.assert_element_text(Locators.REP_CARD_DROPDOWN_SECOND_PLACE_NAME, TestData.REP_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT)
@@ -335,8 +315,8 @@ class Test_08_Republican_Card(EnrPublicApp):
         self.logger.info("Test Pass: Republican 2nd place candidate data is correct")
 
     @allure.severity(allure.severity_level.NORMAL)
-    def test_0803_republican_card_leader_has_highest_results(self):
-        self.logger.info("************* Starting: test_0803_republican_card_leader_has_highest_results")
+    def test_0703_republican_card_leader_has_highest_results(self):
+        self.logger.info("************* Starting: test_0703_republican_card_leader_has_highest_results")
         dc = BasePage(self.driver)
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         dc.assert_contest_leader(Locators.REP_CARD_LEADER_RESULTS, Locators.REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS)
@@ -345,9 +325,30 @@ class Test_08_Republican_Card(EnrPublicApp):
 
 
 @allure.severity(allure.severity_level.CRITICAL)
+class Test_08_DownloadResults(EnrPublicApp):
+
+    @allure.severity(allure.severity_level.NORMAL)
+    def test_0800_validate_download_results_button_text_and_dimensions(self):
+        self.logger.info("************* Starting: test_0800_validate_download_results_button_text_and_dimensions")
+        dl = BasePage(self.driver)
+        dl.assert_element_text(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_TEXT)
+        dl.assert_element_size(Locators.DOWNLOAD_RESULTS_BUTTON, Locators.DOWNLOAD_RESULTS_BUTTON_DIMENSIONS)
+        self.logger.info("Test Pass: Download button text is correct and dimensions of the button are correct")
+
+    @allure.severity(allure.severity_level.NORMAL)
+    def test_0801_download_results_file(self):
+        self.logger.info("************* Starting: test_0801_download_results_file")
+        dl = BasePage(self.driver)
+        dl.click(Locators.DOWNLOAD_RESULTS_BUTTON)
+        time.sleep(3)
+        dl.assert_GET_status(TestData.DOWNLOAD_RESULTS_FILE_URL, 200)
+        self.logger.info("Test Pass: Able to click and download the results file.  File url gets a 200 response")
+
+
+@allure.severity(allure.severity_level.CRITICAL)
 class Test_10_WallBoard(EnrPublicApp):
 
-    def test_0800_wallboard_validations(self):
+    def test_0900_wallboard_validations(self):
         self.logger.info("************* Starting: test_0800_wallboard_validations")
         vt = BasePage(self.driver)
         vt.driver.get(TestData.WALLBOARD_BASE_URL)

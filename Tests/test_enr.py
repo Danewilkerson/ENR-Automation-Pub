@@ -14,6 +14,7 @@ class Test_01_Full_Functional_Regression:
     url = TestData.BASE_URL
     logger=LogGen.loggen()    
     
+    @allure.description("This Regression Suite will test UI and Functionality of ENR Public App")
     @allure.severity(allure.severity_level.NORMAL)
     def test_0100_enr_functional_regression_test(self, setup):
         driver = setup

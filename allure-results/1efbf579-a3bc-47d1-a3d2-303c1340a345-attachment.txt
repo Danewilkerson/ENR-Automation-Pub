@@ -1,0 +1,4 @@
+[32mINFO    [0m root:test_enr_pub.py:278 ************* Starting: test_0602_democratic_card_dropdown_second_place_validation
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Bernie Sanders
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: 15.1%
+[32mINFO    [0m root:test_enr_pub.py:284 Test Pass: Democratic 2nd place candidate data is correct

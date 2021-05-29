@@ -1,0 +1,4 @@
+[32mINFO    [0m root:test_enr_pub.py:358 ************* Starting: test_0800_validate_download_results_button_text_and_dimensions
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Download Results
+[32mINFO    [0m root:page_library.py:54 Validation | Elements size is: {'height': 36, 'width': 175}
+[32mINFO    [0m root:test_enr_pub.py:362 Test Pass: Download button text is correct and dimensions of the button are correct

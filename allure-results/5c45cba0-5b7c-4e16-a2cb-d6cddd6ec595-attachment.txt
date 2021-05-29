@@ -1,0 +1,9 @@
+[32mINFO    [0m root:test_enr_pub.py:36 ************* ************* Starting ENR Regression Tests *************
+[32mINFO    [0m root:test_enr_pub.py:37 ************* ************* Starting: test_0100_validate_page_responses
+[32mINFO    [0m root:page_library.py:59 Validation | https://wow.stage.electionnightresults.com/ recieved expected GET status '200'
+[32mINFO    [0m root:page_library.py:59 Validation | https://data.stage.electionnightresults.com/wow/results/results.json recieved expected GET status '200'
+[32mINFO    [0m root:page_library.py:59 Validation | https://data.stage.electionnightresults.com/wow/config/map.topo.json recieved expected GET status '200'
+[32mINFO    [0m root:page_library.py:59 Validation | https://wow.stage.electionnightresults.com/svgs/building.svg recieved expected GET status '200'
+[32mINFO    [0m root:page_library.py:59 Validation | https://wow.stage.electionnightresults.com/svgs/capital.svg recieved expected GET status '200'
+[32mINFO    [0m root:page_library.py:59 Validation | https://wow.stage.electionnightresults.com/svgs/issue.svg recieved expected GET status '200'
+[32mINFO    [0m root:test_enr_pub.py:46 Test Pass: All Initial GET items receive a '200' response

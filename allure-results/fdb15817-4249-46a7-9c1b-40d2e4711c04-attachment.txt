@@ -1,0 +1,5 @@
+[32mINFO    [0m root:test_enr_pub.py:51 ************* ************* Starting: test_0101_validate_page_header_data_logoimage_and_sealimage
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Election Night Results
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Election of Ironforge | Aug 31, 2020
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Azeroth
+[32mINFO    [0m root:test_enr_pub.py:58 Test Pass: Page Header Data/Text, Logo Image and Seal Image are displayed

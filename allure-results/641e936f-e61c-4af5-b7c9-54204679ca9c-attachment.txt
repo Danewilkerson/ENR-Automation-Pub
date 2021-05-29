@@ -1,0 +1,2 @@
+[32mINFO    [0m root:test_enr_pub.py:286 ************* Starting: test_0700_republican_card_visibility_validations
+[32mINFO    [0m root:test_enr_pub.py:299 Test Pass: All Republican Card visual elements are displayed

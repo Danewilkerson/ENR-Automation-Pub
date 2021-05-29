@@ -1,0 +1,4 @@
+[32mINFO    [0m root:test_enr_pub.py:96 ************* Starting: test_0203_search_partial_name
+[32mINFO    [0m root:page_library.py:71 Entered Joh into the searchfield
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: John Anderson
+[32mINFO    [0m root:test_enr_pub.py:101 Test Pass: Able to search a partial name (min 3 characters)

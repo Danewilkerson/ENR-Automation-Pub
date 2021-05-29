@@ -1,0 +1,2 @@
+[32mINFO    [0m root:test_enr_pub.py:153 ************* Starting: test_0400_precinct_reporting_card_validations
+[32mINFO    [0m root:test_enr_pub.py:165 Test Pass: All elements in the 'Precinct Reporting Card' are displayed

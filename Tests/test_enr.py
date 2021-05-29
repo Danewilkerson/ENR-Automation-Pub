@@ -14,7 +14,7 @@ class Test_01_Full_Functional_Regression:
     url = TestData.BASE_URL
     logger=LogGen.loggen()    
     
-    @allure.description("This Regression Suite will test UI and Functionality of ENR Public App")
+    @allure.description("This Regression Suite will test UI and Functionality of ENR Public App.  See the log for details")
     @allure.severity(allure.severity_level.NORMAL)
     def test_0100_enr_functional_regression_test(self, setup):
         driver = setup
@@ -32,6 +32,7 @@ class Test_01_Full_Functional_Regression:
         t.assert_GET_status(TestData.CAPITAL_SVG_URL,200)
         t.assert_GET_status(TestData.ISSUE_SVG_URL,200)
         self.logger.info("Test Pass: All Initial GET items receive a '200' response")
+
         self.logger.info("************* Starting: test_0101_validate_page_header_data_logoimage_and_sealimage")
         t.assert_element_text(Locators.HEADER_TITLE, TestData.HEADER_TITLE_TEXT)
         t.assert_element_text(Locators.ELECTION_HEADER, TestData.ELECTION_NAME)

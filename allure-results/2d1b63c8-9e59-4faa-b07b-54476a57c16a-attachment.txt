@@ -1,0 +1,7 @@
+[32mINFO    [0m root:test_enr_pub.py:252 ************* Starting: test_0601_democratic_card_main_leader_validations
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: DEM Delegates-at-Large and Alternates-at-Large to the Na
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Last updated: November 4th, 2020 7:05 AM
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Joseph R. Biden, Jr.
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: 76.8%
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Expand for more candidates in this race
+[32mINFO    [0m root:test_enr_pub.py:259 Test Pass: All Democratic Leader data is displayed and correct

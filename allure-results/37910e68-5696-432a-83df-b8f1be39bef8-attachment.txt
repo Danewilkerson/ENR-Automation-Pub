@@ -1,0 +1,4 @@
+[32mINFO    [0m root:test_enr_pub.py:86 ************* Starting: test_0202_search_results_contest_Issue_title_validation
+[32mINFO    [0m root:page_library.py:71 Entered dem into the searchfield
+[32mINFO    [0m root:page_library.py:32 Validation | Element text: Contest Title/Issue Name
+[32mINFO    [0m root:test_enr_pub.py:91 Test Pass: Issue Title is displayed in the search results list

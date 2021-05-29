@@ -1,0 +1,3 @@
+[32mINFO    [0m root:test_enr_pub.py:289 ************* Starting: test_0603_democratic_card_leader_has_highest_results
+[32mINFO    [0m root:page_library.py:77 Test Pass: Leader has a higher score(76.8%) than 2nd Place(15.1%)
+[32mINFO    [0m root:test_enr_pub.py:294 Test Pass: Democratic Leader has highest results

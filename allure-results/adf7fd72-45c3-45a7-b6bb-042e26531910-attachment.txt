@@ -1,0 +1,3 @@
+[32mINFO    [0m root:test_enr_pub.py:367 ************* Starting: test_0801_download_results_file
+[32mINFO    [0m root:page_library.py:59 Validation | https://data.stage.electionnightresults.com/wow/results/results.txt recieved expected GET status '200'
+[32mINFO    [0m root:test_enr_pub.py:372 Test Pass: Able to click and download the results file.  File url gets a 200 response

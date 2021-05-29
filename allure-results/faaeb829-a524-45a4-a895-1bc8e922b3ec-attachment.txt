@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:179 ************* Starting: test_0402_precinct_reporting_sort_turnout_table_header
-[32mINFO    [0m root:test_enr_pub.py:185 Test Pass: Able to sort the Precinct Reporting tables 'Voter Turnout' column

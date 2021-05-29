@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:148 ************* Starting: test_0303_select_allparties_from_parties_filter
-[32mINFO    [0m root:test_enr_pub.py:152 Test Pass: Able to select 'All Parties' from the parties filter list

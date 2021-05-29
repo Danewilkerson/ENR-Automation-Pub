@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:248 ************* Starting: test_0600_democratic_card_visibility_validations
-[32mINFO    [0m root:test_enr_pub.py:261 Test Pass: All Democratic Card visual elements are displayed

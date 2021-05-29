@@ -1,3 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:381 ************* Starting: test_0800_wallboard_validations
-[32mINFO    [0m root:test_enr_pub.py:386 Test Pass: Wallboard is displayed and Latest Status URL GETS a 200
-[32mINFO    [0m root:test_enr_pub.py:388 ************* ************* Starting ENR Regression Tests *************

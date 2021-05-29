@@ -1,4 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:106 ************* Starting: test_0204_search_full_name
-[32mINFO    [0m root:page_library.py:71 Entered John McManus into the searchfield
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: John McManus
-[32mINFO    [0m root:test_enr_pub.py:112 Test Pass: Able to search full name (min 3 characters)

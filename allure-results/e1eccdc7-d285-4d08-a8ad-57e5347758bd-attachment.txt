@@ -1,9 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:207 ************* Starting: test_0501_voter_turnout_table_validations
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Party
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Turnout
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: 57.82%
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: 42.18%
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Democrat
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Republican
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Click a party row to see turnout in heatmap.
-[32mINFO    [0m root:test_enr_pub.py:218 Test Pass: Voter Turnout table headers are displayed and correct

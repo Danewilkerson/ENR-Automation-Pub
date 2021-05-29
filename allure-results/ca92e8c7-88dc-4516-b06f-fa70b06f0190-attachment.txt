@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:192 ************* Starting: test_0500_voter_turnout_card_validations
-[32mINFO    [0m root:test_enr_pub.py:203 Test Pass: All elements in the 'Voter Turnout Card' are displayed

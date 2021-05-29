@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:222 ************* Starting: test_0502_voter_turnout_table_click_party_to_view_on_heatmap
-[32mINFO    [0m root:test_enr_pub.py:228 Test Pass: Able to click a Party to view its results on the Heat Map

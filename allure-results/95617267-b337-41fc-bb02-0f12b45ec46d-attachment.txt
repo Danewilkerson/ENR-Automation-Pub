@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:139 ************* Starting: test_0302_select_democratic_from_parties_filter
-[32mINFO    [0m root:test_enr_pub.py:143 Test Pass: Able to select 'Democratic' party from the parties filter list

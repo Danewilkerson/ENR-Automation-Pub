@@ -1,4 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:67 ************* Starting: test_0200_validate_search_textbox_placeholder_and_dimensions
-[32mINFO    [0m root:page_library.py:42 Validation | Search placeholder is visible and text is: "Search…"
-[32mINFO    [0m root:page_library.py:54 Validation | Elements size is: {'height': 35, 'width': 221}
-[32mINFO    [0m root:test_enr_pub.py:71 Test Pass: Search Field Placeholder is displayed and Textbox Dimensions are correct

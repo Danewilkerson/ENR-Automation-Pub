@@ -1,2 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:126 ************* Starting: test_0301_select_republican_from_parties_filter
-[32mINFO    [0m root:test_enr_pub.py:130 Test Pass: Able to select 'Republican' party from the parties filter list

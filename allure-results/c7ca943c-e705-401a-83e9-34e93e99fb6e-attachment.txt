@@ -1,5 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:120 ************* Starting: test_0300_assert_all_parties_are_present_in_filter
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: All Parties
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Democratic
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Republican
-[32mINFO    [0m root:test_enr_pub.py:125 Test Pass: All parties in the election are in the parties filter list

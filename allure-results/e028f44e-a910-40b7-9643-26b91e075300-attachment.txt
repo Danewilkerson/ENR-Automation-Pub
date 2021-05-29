@@ -1,4 +1,0 @@
-[32mINFO    [0m root:test_enr_pub.py:177 ************* Starting: test_0401_precinct_reporting_table_header_validations
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Precinct
-[32mINFO    [0m root:page_library.py:32 Validation | Element text: Turnout
-[32mINFO    [0m root:test_enr_pub.py:183 Test Pass: Precinct Report table headers are displayed and correct

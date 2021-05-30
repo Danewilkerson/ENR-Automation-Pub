@@ -265,6 +265,8 @@ class Test_06_Democratic_Card(EnrPublicApp):
     def test_0601_democratic_card_main_leader_validations(self):
         self.logger.info("************* Starting: test_0601_democratic_card_main_leader_validations")
         dc = BasePage(self.driver)
+        dc.click(Locators.PARTIES_FILTER_DROPDOWN)
+        dc.click(Locators.PARTIES_FILTER_DEMOCRATIC)
         dc.assert_element_text(Locators.DEM_CARD_HEADER, TestData.DEM_CARD_HEADER_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_SUBHEADER, TestData.DEM_CARD_SUBHEADER_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_LEADER_NAME, TestData.DEM_CARD_LEADER_NAME_TEXT)
@@ -277,6 +279,8 @@ class Test_06_Democratic_Card(EnrPublicApp):
     def test_0602_democratic_card_dropdown_second_place_validation(self):
         self.logger.info("************* Starting: test_0602_democratic_card_dropdown_second_place_validation")
         dc = BasePage(self.driver)
+        dc.click(Locators.PARTIES_FILTER_DROPDOWN)
+        dc.click(Locators.PARTIES_FILTER_DEMOCRATIC)
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
         dc.assert_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME, TestData.DEM_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT)
         dc.assert_element_text(Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS, TestData.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT)
@@ -288,6 +292,8 @@ class Test_06_Democratic_Card(EnrPublicApp):
     def test_0603_democratic_card_leader_has_highest_results(self):
         self.logger.info("************* Starting: test_0603_democratic_card_leader_has_highest_results")
         dc = BasePage(self.driver)
+        dc.click(Locators.PARTIES_FILTER_DROPDOWN)
+        dc.click(Locators.PARTIES_FILTER_DEMOCRATIC)
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
         dc.assert_contest_leader(Locators.DEM_CARD_LEADER_RESULTS, Locators.DEM_CARD_DROPDOWN_SECOND_PLACE_RESULTS)
         dc.click(Locators.DEM_CARD_DROPDOWN_ARROW)
@@ -320,6 +326,8 @@ class Test_05_Republican_Card(EnrPublicApp):
     def test_0701_republican_card_main_leader_validations(self):
         self.logger.info("************* Starting: test_0701_republican_card_main_leader_validations")
         dc = BasePage(self.driver)
+        dc.click(Locators.PARTIES_FILTER_DROPDOWN)
+        dc.click(Locators.PARTIES_FILTER_REPUBLICAN)
         dc.assert_element_text(Locators.REP_CARD_HEADER, TestData.REP_CARD_HEADER_TEXT)
         dc.assert_element_text(Locators.REP_CARD_SUBHEADER, TestData.REP_CARD_SUBHEADER_TEXT)
         dc.assert_element_text(Locators.REP_CARD_LEADER_NAME, TestData.REP_CARD_LEADER_NAME_TEXT)
@@ -332,6 +340,8 @@ class Test_05_Republican_Card(EnrPublicApp):
     def test_0702_republican_card_dropdown_second_place_validation(self):
         self.logger.info("************* Starting: test_0702_republican_card_dropdown_second_place_validation")
         dc = BasePage(self.driver)
+        dc.click(Locators.PARTIES_FILTER_DROPDOWN)
+        dc.click(Locators.PARTIES_FILTER_REPUBLICAN)
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         dc.assert_element_text(Locators.REP_CARD_DROPDOWN_SECOND_PLACE_NAME, TestData.REP_CARD_DROPDOWN_SECOND_PLACE_NAME_TEXT)
         dc.assert_element_text(Locators.REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS, TestData.REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS_TEXT)
@@ -343,6 +353,8 @@ class Test_05_Republican_Card(EnrPublicApp):
     def test_0703_republican_card_leader_has_highest_results(self):
         self.logger.info("************* Starting: test_0703_republican_card_leader_has_highest_results")
         dc = BasePage(self.driver)
+        dc.click(Locators.PARTIES_FILTER_DROPDOWN)
+        dc.click(Locators.PARTIES_FILTER_REPUBLICAN)
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)
         dc.assert_contest_leader(Locators.REP_CARD_LEADER_RESULTS, Locators.REP_CARD_DROPDOWN_SECOND_PLACE_RESULTS)
         dc.click(Locators.REP_CARD_DROPDOWN_ARROW)

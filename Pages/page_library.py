@@ -46,29 +46,31 @@ class BasePage():
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert element.get_attribute("placeholder") == "Search…"
         self.logger.info('Validation | Search placeholder is visible and text is: "Search…"')
+    @allure.step(f"Asserting search box placeholder: {by_locator} to equal 'Search...'")
 
     @allure.step(f"Asserting element fill color: {by_locator} to equal {color}")
     def assert_element_fill_color(self, by_locator, color):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert element.get_attribute("fill") == color
+    @allure.step(f"Asserting element fill color: {by_locator} to equal {color}")
 
-    @allure.step(f"Asserting element displays: {by_locator}")
     def assert_element_is_displayed(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).is_displayed()
+    @allure.step(f"Asserting element displays: {by_locator}")
 
-    @allure.step(f"Asserting element size: {by_locator} to equal {element_size}")
+    @allure.step("Asserting element size")
     def assert_element_size(self, by_locator, element_size):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).size
         assert element == element_size
         self.logger.info("Validation | Elements size is: " + str(element))
 
-    @allure.step(f"Asserting Get status for: {request_url} to equal {expected_GET_status_code}")
+    @allure.step("Asserting Get status")
     def assert_GET_status(self, request_url, expected_GET_status_code):
         r = requests.get(request_url)
         assert r.status_code == expected_GET_status_code
         self.logger.info(f"Validation | {request_url} recieved expected GET status '{expected_GET_status_code}'")
 
-    @allure.step(f"Entering text: {text}, into {by_locator}")
+    @allure.step("Entering text in field")
     def enter_text(self, by_locator, text):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
         self.logger.info("Entered text: " + text)
@@ -77,7 +79,7 @@ class BasePage():
         page = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(Locators.PR_HEADER))
         self.logger.info("ENR Public Page has fully loaded")
 
-    @allure.step(f"Searching: {text}")
+    @allure.step("Searching")
     def search(self, text):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(Locators.SEARCH_TEXTBOX_PLACEHOLDER)).send_keys(text)
         self.logger.info("Entered " + text + " into the searchfield")

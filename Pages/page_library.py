@@ -14,47 +14,47 @@ class BasePage():
     def __init__(self, driver):
         self.driver=driver
 
+    @allure.step("Click")
     def click(self, by_locator):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
         time.sleep(.5)
-    @allure.step(f"Click: {by_locator}")
 
+    @allure.step("Returning element text")
     def return_element_text(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).get_attribute("textContent")
         return element
-        @allure.step(f"Returning element text: {by_locator} return {element}")
 
+    @allure.step("Printing element text")
     def print_element_text(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator)).get_attribute("textContent")
         self.logger.info("Printed element text: " + element)
-        @allure.step(f"Printing element text: {by_locator}")
 
+    @allure.step("Asserting element text")
     def assert_element_text(self, by_locator, element_text):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(by_locator))
         assert element.get_attribute("textContent") == element_text
         self.logger.info("Validation | Element text: " + element_text)
-        @allure.step(f"Asserting element text: {by_locator} with {element_text}")
 
+    @allure.step("Asserting element source")
     def assert_element_source(self, by_locator, element_source):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert element.get_attribute("src") == element_source
         self.logger.info("Validation | Element source: " + element_source)
-    @allure.step(f"Asserting element source: {by_locator}, {element_source}")
         
+    @allure.step("Asserting search box placeholder")
     def assert_element_placeholder(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert element.get_attribute("placeholder") == "Search…"
         self.logger.info('Validation | Search placeholder is visible and text is: "Search…"')
-    @allure.step(f"Asserting search box placeholder: {by_locator} to equal 'Search...'")
 
+    @allure.step("Asserting element fill color")
     def assert_element_fill_color(self, by_locator, color):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert element.get_attribute("fill") == color
-    @allure.step(f"Asserting element fill color: {by_locator} to equal {color}")
 
+    @allure.step("Asserting element displays")
     def assert_element_is_displayed(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).is_displayed()
-    @allure.step(f"Asserting element displays: {by_locator}")
 
     @allure.step("Asserting element size")
     def assert_element_size(self, by_locator, element_size):
